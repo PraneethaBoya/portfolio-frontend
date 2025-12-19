@@ -11,7 +11,8 @@
 
   const adminLink = document.getElementById('admin-link');
   if (adminLink && ADMIN_URL) {
-    adminLink.href = ADMIN_URL;
+    const base = ADMIN_URL.replace(/\/+$/, '');
+    adminLink.href = base + '/login.html';
   }
 
   let currentSlide = 0;
