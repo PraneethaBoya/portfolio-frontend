@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolio</title>
+    <link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body>
+    <div class="slide-container">
+        <section class="slide active" id="home-slide">
+            <div class="slide-content hero-content">
+                <div class="profile-hero">
+                    <div class="hero-image">
+                        <img id="profile-image" src="" alt="Profile">
+                    </div>
+
+                    <h1 class="profile-title">
+                        <span id="profile-name">Loading...</span>
+                        <span class="profile-title-suffix">'s <span class="portfolio-word">Portofolio</span></span>
+                    </h1>
+
+                    <p class="role" id="profile-role"></p>
+
+                    <div class="profile-actions">
+                        <button class="profile-cta" type="button" data-jump-slide="3">View Projects</button>
+                        <button class="profile-cta" type="button" data-jump-slide="7">Contact</button>
+                        <a class="profile-cta" id="resume-download" href="#" download="resume.pdf">Download Resume</a>
+                    </div>
+
+                    <div class="social-links" id="social-links"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="about-slide">
+            <div class="slide-content">
+                <div class="about-layout">
+                    <div class="about-media">
+                        <img id="about-image" src="" alt="About">
+                    </div>
+                    <div class="about-text">
+                        <h2 class="slide-title about-title">About Me</h2>
+                        <p class="about-paragraph" id="about-bio"></p>
+                        <div class="about-tags" id="about-tags"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="skills-slide">
+            <div class="slide-content">
+                <h2 class="slide-title">Skills & Expertise</h2>
+                <div class="skills-grid" id="skills-container"></div>
+            </div>
+        </section>
+
+        <section class="slide" id="projects-slide">
+            <div class="slide-content">
+                <h2 class="slide-title">Projects</h2>
+                <div class="projects-grid" id="projects-container"></div>
+            </div>
+        </section>
+
+        <section class="slide" id="experience-slide">
+            <div class="slide-content">
+                <h2 class="slide-title">Work Experience</h2>
+                <div class="experience-timeline" id="experience-container"></div>
+            </div>
+        </section>
+
+        <section class="slide" id="blogs-slide">
+            <div class="slide-content">
+                <h2 class="slide-title">Blogs & Articles</h2>
+                <div class="blogs-grid" id="blogs-container"></div>
+            </div>
+        </section>
+
+        <section class="slide" id="education-slide">
+            <div class="slide-content">
+                <h2 class="slide-title">Education</h2>
+                <div class="education-actions">
+                    <a class="profile-cta" id="resume-download-education" href="#" download="resume.pdf">Download Resume</a>
+                </div>
+                <div class="education-grid" id="education-container"></div>
+            </div>
+        </section>
+
+        <section class="slide" id="contact-slide">
+            <div class="slide-content">
+                <h2 class="slide-title">Get In Touch</h2>
+                <div class="contact-section">
+                    <div class="contact-info-large">
+                        <h3>Let's Connect!</h3>
+                        <p>Feel free to reach out for collaborations or just a friendly hello</p>
+                        <div class="contact-methods" id="contact-methods"></div>
+                    </div>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Name</label>
+                                <input id="contact-name" name="name" type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email-input">Email</label>
+                                <input id="contact-email-input" name="email" type="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input id="contact-subject" name="subject" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" rows="5" required></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="profile-cta">Send Message</button>
+                            <p class="form-status" id="contact-form-status"></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <nav class="slide-nav">
+        <button class="nav-dot active" data-slide="0" title="Home"></button>
+        <button class="nav-dot" data-slide="1" title="About"></button>
+        <button class="nav-dot" data-slide="2" title="Skills"></button>
+        <button class="nav-dot" data-slide="3" title="Projects"></button>
+        <button class="nav-dot" data-slide="4" title="Experience"></button>
+        <button class="nav-dot" data-slide="5" title="Blogs"></button>
+        <button class="nav-dot" data-slide="6" title="Education"></button>
+        <button class="nav-dot" data-slide="7" title="Contact"></button>
+    </nav>
+
+    <a href="/admin-dashboard.html" class="admin-link" id="admin-link" title="Admin Dashboard">⚙️</a>
+
+    <script src="js/config.js"></script>
+    <script src="js/portfolio.js"></script>
+</body>
+</html>

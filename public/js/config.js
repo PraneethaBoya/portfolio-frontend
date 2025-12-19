@@ -1,0 +1,4 @@
+window.PORTFOLIO_CONFIG = {
+  API_BASE_URL: '',
+  ADMIN_PORTAL_URL: ''
+};
