@@ -44,3 +44,12 @@ img{max-width:100%;display:block}
 .nav-dot.active{background:#E75480;border-color:#E75480}
 
 .admin-link{position:fixed;left:14px;bottom:14px;text-decoration:none;background:#ffffff;color:#1F1F1F;border:1px solid rgba(231,84,128,.35);padding:10px 12px;border-radius:12px}
+
+.about-layout{display:grid;grid-template-columns:1fr;gap:18px;align-items:start}
+.about-media{display:flex;justify-content:center}
+#about-image{width:min(420px,100%);height:auto;border-radius:16px;border:1px solid rgba(231,84,128,.25);background:#ffffff}
+
+@media (min-width: 900px){
+  .about-layout{grid-template-columns:420px 1fr;gap:22px;align-items:center}
+  .about-media{justify-content:flex-start}
+}
