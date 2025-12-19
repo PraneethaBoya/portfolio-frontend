@@ -3,6 +3,17 @@
   const API_BASE = (cfg.API_BASE_URL || '').replace(/\/$/, '');
   const ADMIN_URL = cfg.ADMIN_PORTAL_URL || '';
 
+  const THEME = {
+    cardBg: '#ffffff',
+    cardBgAlt: '#fff7fa',
+    border: 'rgba(231,84,128,.25)',
+    text: '#4A4A4A',
+    muted: 'rgba(74,74,74,.78)',
+    primary: '#E75480',
+    primarySoft: 'rgba(231,84,128,.14)',
+    progressTrack: 'rgba(231,84,128,.18)'
+  };
+
   function apiUrl(path){
     if (!API_BASE) return path;
     if (path.startsWith('http://') || path.startsWith('https://')) return path;
@@ -224,7 +235,7 @@
 
       const skillsContainer = byId('skills-container');
       if (skillsContainer) {
-        skillsContainer.innerHTML = skills.map(s => `<div style="background:#11193a;border:1px solid rgba(255,255,255,.12);padding:14px;border-radius:12px"><div style="font-weight:700">${s.name || ''}</div><div style="opacity:.85">${s.category || ''}</div><div style="margin-top:8px;height:8px;background:rgba(255,255,255,.10);border-radius:999px;overflow:hidden"><div style="width:${Number(s.level)||0}%;height:100%;background:#3b82f6"></div></div></div>`).join('');
+        skillsContainer.innerHTML = skills.map(s => `<div style="background:${THEME.cardBg};border:1px solid ${THEME.border};padding:14px;border-radius:12px"><div style="font-weight:700;color:#1F1F1F">${s.name || ''}</div><div style="color:${THEME.muted}">${s.category || ''}</div><div style="margin-top:8px;height:8px;background:${THEME.progressTrack};border-radius:999px;overflow:hidden"><div style="width:${Number(s.level)||0}%;height:100%;background:${THEME.primary}"></div></div></div>`).join('');
       }
 
       const projectsContainer = byId('projects-container');
@@ -232,13 +243,13 @@
         projectsContainer.innerHTML = projects.map(p => {
           const imgSrc = p.image ? apiUrl(p.image) : '';
           const tech = Array.isArray(p.techStack) ? p.techStack : [];
-          return `<div style="background:#11193a;border:1px solid rgba(255,255,255,.12);padding:14px;border-radius:12px;display:grid;gap:10px"><div>${imgSrc ? `<img src="${imgSrc}" alt="" style="border-radius:10px">` : ''}</div><div style="font-weight:700">${p.title||''}</div><div style="opacity:.85">${p.description||''}</div><div style="display:flex;flex-wrap:wrap;gap:8px">${tech.map(t=>`<span style=\"font-size:12px;background:rgba(59,130,246,.18);border:1px solid rgba(59,130,246,.35);padding:4px 8px;border-radius:999px\">${t}</span>`).join('')}</div></div>`;
+          return `<div style="background:${THEME.cardBg};border:1px solid ${THEME.border};padding:14px;border-radius:12px;display:grid;gap:10px"><div>${imgSrc ? `<img src="${imgSrc}" alt="" style="border-radius:10px">` : ''}</div><div style="font-weight:700;color:#1F1F1F">${p.title||''}</div><div style="color:${THEME.muted}">${p.description||''}</div><div style="display:flex;flex-wrap:wrap;gap:8px">${tech.map(t=>`<span style=\"font-size:12px;background:${THEME.primarySoft};border:1px solid ${THEME.border};padding:4px 8px;border-radius:999px;color:#1F1F1F\">${t}</span>`).join('')}</div></div>`;
         }).join('');
       }
 
       const expContainer = byId('experience-container');
       if (expContainer) {
-        expContainer.innerHTML = experience.map(e => `<div style="background:#11193a;border:1px solid rgba(255,255,255,.12);padding:14px;border-radius:12px"><div style="font-weight:700">${e.title||''}</div><div style="opacity:.85">${e.company||''}${e.location?` • ${e.location}`:''}</div><div style="opacity:.85;margin-top:6px">${e.description||''}</div></div>`).join('');
+        expContainer.innerHTML = experience.map(e => `<div style="background:${THEME.cardBg};border:1px solid ${THEME.border};padding:14px;border-radius:12px"><div style="font-weight:700;color:#1F1F1F">${e.title||''}</div><div style="color:${THEME.muted}">${e.company||''}${e.location?` • ${e.location}`:''}</div><div style="color:${THEME.muted};margin-top:6px">${e.description||''}</div></div>`).join('');
       }
 
       const blogsContainer = byId('blogs-container');
@@ -246,13 +257,13 @@
         blogsContainer.innerHTML = blogs.map(b => {
           const imgSrc = b.image ? apiUrl(b.image) : '';
           const tags = Array.isArray(b.tags) ? b.tags : [];
-          return `<div style="background:#11193a;border:1px solid rgba(255,255,255,.12);padding:14px;border-radius:12px;display:grid;gap:10px">${imgSrc?`<img src="${imgSrc}" alt="" style="border-radius:10px">`:''}<div style="font-weight:700">${b.title||''}</div><div style="opacity:.85">${b.excerpt||''}</div><div style="display:flex;flex-wrap:wrap;gap:8px">${tags.map(t=>`<span style=\"font-size:12px;background:rgba(59,130,246,.18);border:1px solid rgba(59,130,246,.35);padding:4px 8px;border-radius:999px\">${t}</span>`).join('')}</div></div>`;
+          return `<div style="background:${THEME.cardBg};border:1px solid ${THEME.border};padding:14px;border-radius:12px;display:grid;gap:10px">${imgSrc?`<img src="${imgSrc}" alt="" style="border-radius:10px">`:''}<div style="font-weight:700;color:#1F1F1F">${b.title||''}</div><div style="color:${THEME.muted}">${b.excerpt||''}</div><div style="display:flex;flex-wrap:wrap;gap:8px">${tags.map(t=>`<span style=\"font-size:12px;background:${THEME.primarySoft};border:1px solid ${THEME.border};padding:4px 8px;border-radius:999px;color:#1F1F1F\">${t}</span>`).join('')}</div></div>`;
         }).join('');
       }
 
       const eduContainer = byId('education-container');
       if (eduContainer) {
-        eduContainer.innerHTML = education.map(e => `<div style="background:#11193a;border:1px solid rgba(255,255,255,.12);padding:14px;border-radius:12px"><div style="font-weight:700">${e.degree||''}${e.field?` - ${e.field}`:''}</div><div style="opacity:.85">${e.institution||''}</div><div style="opacity:.85;margin-top:6px">${e.startDate||''}${e.endDate?` - ${e.endDate}`:''}</div></div>`).join('');
+        eduContainer.innerHTML = education.map(e => `<div style="background:${THEME.cardBg};border:1px solid ${THEME.border};padding:14px;border-radius:12px"><div style="font-weight:700;color:#1F1F1F">${e.degree||''}${e.field?` - ${e.field}`:''}</div><div style="color:${THEME.muted}">${e.institution||''}</div><div style="color:${THEME.muted};margin-top:6px">${e.startDate||''}${e.endDate?` - ${e.endDate}`:''}</div></div>`).join('');
       }
 
       const contactMethods = byId('contact-methods');
@@ -261,7 +272,7 @@
         if (profile.email) items.push({ label: 'Email', value: profile.email });
         if (profile.phone) items.push({ label: 'Phone', value: profile.phone });
         if (profile.location) items.push({ label: 'Location', value: profile.location });
-        contactMethods.innerHTML = items.map(i => `<div style="background:#11193a;border:1px solid rgba(255,255,255,.12);padding:14px;border-radius:12px"><div style="font-weight:700">${i.label}</div><div style="opacity:.85">${i.value}</div></div>`).join('');
+        contactMethods.innerHTML = items.map(i => `<div style="background:${THEME.cardBgAlt};border:1px solid ${THEME.border};padding:14px;border-radius:12px"><div style="font-weight:700;color:#1F1F1F">${i.label}</div><div style="color:${THEME.muted}">${i.value}</div></div>`).join('');
       }
 
     } catch (e) {
