@@ -241,9 +241,8 @@
       const projectsContainer = byId('projects-container');
       if (projectsContainer) {
         projectsContainer.innerHTML = projects.map(p => {
-          const imgSrc = p.image ? apiUrl(p.image) : '';
           const tech = Array.isArray(p.techStack) ? p.techStack : [];
-          return `<div style="background:${THEME.cardBg};border:1px solid ${THEME.border};padding:14px;border-radius:12px;display:grid;gap:10px"><div>${imgSrc ? `<img src="${imgSrc}" alt="" style="border-radius:10px;width:100%;height:160px;object-fit:cover">` : ''}</div><div style="font-weight:700;color:#1F1F1F">${p.title||''}</div><div style="color:${THEME.muted}">${p.description||''}</div><div style="display:flex;flex-wrap:wrap;gap:8px">${tech.map(t=>`<span style=\"font-size:12px;background:${THEME.primarySoft};border:1px solid ${THEME.border};padding:4px 8px;border-radius:999px;color:#1F1F1F\">${t}</span>`).join('')}</div></div>`;
+          return `<div style="background:${THEME.cardBg};border:1px solid ${THEME.border};padding:14px;border-radius:12px;display:grid;gap:10px"><div style="font-weight:700;color:#1F1F1F">${p.title||''}</div><div style="color:${THEME.muted}">${p.description||''}</div><div style="display:flex;flex-wrap:wrap;gap:8px">${tech.map(t=>`<span style=\"font-size:12px;background:${THEME.primarySoft};border:1px solid ${THEME.border};padding:4px 8px;border-radius:999px;color:#1F1F1F\">${t}</span>`).join('')}</div></div>`;
         }).join('');
       }
 
